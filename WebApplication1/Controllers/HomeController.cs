@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1.ServiceReference1;
 
 namespace WebApplication1.Controllers
 {
@@ -10,6 +11,8 @@ namespace WebApplication1.Controllers
     {
         public ActionResult Index()
         {
+            Service1Client client = new ServiceReference1.Service1Client();
+            ViewBag.Message = client.GetData(1);
             return View();
         }
 
